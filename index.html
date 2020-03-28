@@ -2,12 +2,15 @@
 <html>
   <head>
     <title>Random Cat Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2:700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="normalize.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <img id="baseImg" src="base.jpg" alt="">
     <canvas id="mainCanvas"></canvas>
-    <button id="genButton">Generate</button>
+    <div id="genButton" onclick="genCat()">Generate</div>
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
