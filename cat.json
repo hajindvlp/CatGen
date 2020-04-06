@@ -1,0 +1,9 @@
+{
+  "body-color": colorCode,
+  "head-style": headStyleEnum,
+  "head-color-num": int,
+  "head-colors": [colorCode],
+  "body-style": bodyStyleEnum,
+  "body-clolr-num": int,
+  "body-colors": [colorCode]
+}

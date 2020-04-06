@@ -19,7 +19,7 @@ body {
   margin-top: 100px;
   margin-bottom: 50px;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
   width: 185px;
   height: 265px;
 }
