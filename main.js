@@ -1,6 +1,6 @@
 let c, ctx;
 let CANVAS_WIDTH, CANVAS_HEIGHT;
-let catType = [catBicolor];
+let catType = [catSolid, catBicolor];
 
 window.onload = init();
 

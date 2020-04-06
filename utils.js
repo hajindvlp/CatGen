@@ -45,6 +45,7 @@ function genRandomSpot(ctx, color) {
   }
 
   ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
   for(let i=0 ; i<angleSteps ; i++) {
     let startPoint = points[i], endPoint = points[(i+1)%angleSteps];
     let sub1 = points[(i-1+angleSteps)%angleSteps], sub2 = points[(i+2)%angleSteps];
@@ -55,26 +56,13 @@ function genRandomSpot(ctx, color) {
     let controlPointX = (yInt2 - yInt1) / (slope1 - slope2);
     let controlPointY = slope1 * controlPointX + yInt1;
 
-    ctx.moveTo(startPoint.x, startPoint.y);
     ctx.quadraticCurveTo(controlPointX, controlPointY, endPoint.x, endPoint.y);
   }
+  ctx.closePath();
   ctx.fillStyle = color;
   ctx.fill();
-  ctx.beginPath();
-  for(let i=0 ; i<angleSteps ; i++) {
-    let startPoint = points[i], endPoint = points[(i+1)%angleSteps];
-    let sub1 = points[(i-1+angleSteps)%angleSteps], sub2 = points[(i+2)%angleSteps];
-  
-    let slope1 = (startPoint.y - sub1.y) / (startPoint.x - sub1.x), yInt1 = -slope1 * sub1.x + sub1.y;
-    let slope2 = (endPoint.y - sub2.y) / (endPoint.x - sub2.x),  yInt2 = -slope2 * sub2.x + sub2.y; 
-    // intersect of two lines startPoint - sub1 & endPoint - sub2
-    let controlPointX = (yInt2 - yInt1) / (slope1 - slope2);
-    let controlPointY = slope1 * controlPointX + yInt1;
 
-    ctx.moveTo(startPoint.x, startPoint.y);
-    ctx.lineTo(controlPointX, controlPointY);
-  }
-  ctx.stroke();
+  // ctx.stroke();
 }
 
 function drawCircle(ctx, x, y, r) {
